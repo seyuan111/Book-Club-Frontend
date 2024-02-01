@@ -7,13 +7,12 @@ import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 const BooksTable = ({ books }) => {
   return (
     <div className="overflow-x-auto bg-slate-200">
-    <table className="w-full border-separate border-spacing-2">
+    <table className="w-full border-separate px-4 border-spacing-2">
       <thead>
         <tr>
           <th className="border border-slate-600 rounded-md">No</th>
           <th className="border border-slate-600 rounded-md">Title</th>
-          <th className="md:table-cell border border-slate-600 rounded-md max-md:hidden">Author</th>
-          <th className="md:table-cell border border-slate-600 rounded-md max-md:hidden">Publish Year</th>
+          <th className="md:table-cell border border-slate-600 rounded-md">Author</th>
           <th className="border border-slate-600 rounded-md">Operation</th>  
         </tr>
       </thead>
@@ -28,9 +27,6 @@ const BooksTable = ({ books }) => {
             </td>
             <td className="md:table-cell border border-slate-700 rounded-md text-center">
               {book.author}
-            </td>
-            <td className="md:table-cell border border-slate-700 rounded-md text-center">
-              {book.publishYear}
             </td>
             <td className="border border-slate-700 rounded-md text-center">
               <div className="flex justify-center gap-x-4">

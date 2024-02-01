@@ -56,8 +56,8 @@ const Hero = () => {
         </button>
       
       </div>
-      <div className="bg-slate-200 flex sm:flex-col justify-between items-center">
-        <h1 className="text-3xl my-8">Books I have read so far</h1>
+      <div className="bg-slate-200 flex sm:flex-col justify-between items-center px-6">
+        <h1 className="text-3xl my-8">My Books</h1>
         <Link to="/books/create"><MdOutlineAddBox className="text-blue-600 text-3xl" /></Link>
       </div>
       {loading ? <Spinner /> : showType === "table" ? (<BooksTable books={books}/>) : (<BooksCard books={books}/>)}

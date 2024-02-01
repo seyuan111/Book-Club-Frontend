@@ -8,14 +8,16 @@ import NavBar from '../components/NavBar'
 const CreateBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [publishYear, setPublishYear] = useState('')
+  const [summary, setSummary] = useState('')
+  const [ratings, setRatings] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
   const handleSaveBook = () => {
     const data = {
       title,
       author,
-      publishYear,
+      summary,
+      ratings
     }
     setLoading(true);
     axios.post('http://localhost:8000/books', data)
@@ -33,12 +35,13 @@ const CreateBook = () => {
   return (
     <div>
       <NavBar />
+      <br></br>
       <BackButton />
-      <h1 className="text-3xl my-4">Create Book</h1>
+      <h1 className="text-3xl my-6 ml-10">Create Book</h1>
       {loading ? <Spinner /> : ''}
-      <div className="flex flex-col border-2 border-blue-400 rounded-xl w-[300px] p-4 mx-auto">
+      <div className="flex flex-col border-2 border-blue-400 rounded-xl w-[300px] p-4 mx-auto m-6">
         <div className='my-4'>
-          <label className="text-xl mr-4 text-gray-400">Title</label>
+          <label className="text-xl mr-4 text-slate-600">Title</label>
           <input 
             type="text"
             value={title}
@@ -47,7 +50,7 @@ const CreateBook = () => {
           />
         </div>
         <div className='my-4'>
-          <label className="text-xl mr-4 text-gray-400">Author</label>
+          <label className="text-xl mr-4 text-slate-600">Author</label>
           <input 
             type="text"
             value={author}
@@ -56,11 +59,20 @@ const CreateBook = () => {
           />
         </div>
         <div className='my-4'>
-          <label className="text-xl mr-4 text-gray-400">Publish Year</label>
+          <label className="text-xl mr-4 text-slate-600">Summary</label>
           <input 
             type="text"
-            value={publishYear}
-            onChange={(e) => setPublishYear(e.target.value)}
+            value={summary}
+            onChange={(e) => setSummary(e.target.value)}
+            className="border-2 border-gray-400 px-4 py-2 w-full"
+          />
+        </div>
+        <div className='my-4'>
+          <label className="text-xl mr-4 text-slate-600">Ratings</label>
+          <input 
+            type="text"
+            value={ratings}
+            onChange={(e) => setRatings(e.target.value)}
             className="border-2 border-gray-400 px-4 py-2 w-full"
           />
         </div>
